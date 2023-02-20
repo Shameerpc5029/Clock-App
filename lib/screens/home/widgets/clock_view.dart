@@ -15,87 +15,112 @@ class ClockView extends StatelessWidget {
     });
     return Consumer<HomeController>(
       builder: (context, value, child) {
-        return Column(
-          children: [
-            Text(
-              "Clock",
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            KSizedBox().height30,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "${value.dateTime.hour}:${value.dateTime.minute}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 60,
-                  ),
-                ),
-                KSizedBox().width5,
-                Padding(
-                  padding: const EdgeInsets.only(top: 25.0),
-                  child: Text(
-                    "${value.dateTime.second}",
-                    style: const TextStyle(
+        return SingleChildScrollView(
+          child: Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.topCenter,
+            children: [
+              Positioned(
+                top: -100,
+                right: 180,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${value.dateTime.day}",
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.amber),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0),
-              child: Text(
-                "${value.dateTime.day}/${value.dateTime.month}/${value.dateTime.year}",
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 300,
-              width: 300,
-              child: Transform.rotate(
-                angle: -pi / 2,
-                child: Consumer<HomeController>(
-                  builder: (context, value, child) {
-                    return CustomPaint(
-                      painter: ClockPainter(value.dateTime),
-                    );
-                  },
+                        fontSize: 30,
+                        color: Colors.red,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text(
+                        " / ${value.dateTime.month} / ${value.dateTime.year}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Text(
-              'Timezone',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            KSizedBox().height10,
-            Text(
-              'UTC+05:30(IST)',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            KSizedBox().height10,
-            const Divider(
-              endIndent: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
+              Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Automatic timezone"),
-                  const Spacer(),
-                  Switch(
-                    value: true,
-                    onChanged: (value) {},
-                  )
+                  // KSizedBox().height30,
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${value.dateTime.hour}:${value.dateTime.minute}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 60,
+                        ),
+                      ),
+                      KSizedBox().width5,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25.0),
+                        child: Text(
+                          "${value.dateTime.second}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.amber),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: 300,
+                    width: 300,
+                    child: Transform.rotate(
+                      angle: -pi / 2,
+                      child: Consumer<HomeController>(
+                        builder: (context, value, child) {
+                          return CustomPaint(
+                            painter: ClockPainter(value.dateTime),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Timezone',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  KSizedBox().height10,
+                  Text(
+                    "UTC+${value.dateTime.timeZoneOffset}(${value.dateTime.timeZoneName})",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  KSizedBox().height10,
+                  const Divider(
+                    endIndent: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: [
+                        const Text("Automatic timezone"),
+                        const Spacer(),
+                        Switch(
+                          value: true,
+                          onChanged: (value) {},
+                        )
+                      ],
+                    ),
+                  ),
+                  // Spacer()
                 ],
               ),
-            )
-          ],
+            ],
+          ),
         );
       },
     );

@@ -22,9 +22,10 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         darkTheme: darkTheme(),
         theme: lightTheme(),
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.system,
         home: const HomeScrenn(),
       ),
     );

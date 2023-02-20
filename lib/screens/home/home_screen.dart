@@ -10,47 +10,56 @@ class HomeScrenn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: Center(
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 90,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomButton(
-                        text: 'Clock',
-                        color: Colors.orange,
-                        iconData: CupertinoIcons.clock,
-                        onTap: () {},
-                      ),
-                      CustomButton(
-                        text: 'Alarm',
-                        color: Colors.red,
-                        iconData: CupertinoIcons.alarm,
-                        onTap: () {},
-                      ),
-                      CustomButton(
-                        text: 'Timer',
-                        color: Colors.blue,
-                        iconData: CupertinoIcons.timer,
-                        onTap: () {},
-                      ),
-                      CustomButton(
-                        text: 'Stopwatch',
-                        color: Colors.green,
-                        iconData: CupertinoIcons.stopwatch,
-                        onTap: () {},
-                      ),
-                    ],
+            child: Center(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 90,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Clock",
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const Spacer(),
+                        CustomButton(
+                          text: 'Clock',
+                          color: Colors.orange,
+                          iconData: CupertinoIcons.clock,
+                          onTap: () {},
+                        ),
+                        CustomButton(
+                          text: 'Alarm',
+                          color: Colors.red,
+                          iconData: CupertinoIcons.alarm,
+                          onTap: () {},
+                        ),
+                        CustomButton(
+                          text: 'Timer',
+                          color: Colors.blue,
+                          iconData: CupertinoIcons.timer,
+                          onTap: () {},
+                        ),
+                        CustomButton(
+                          text: 'Stopwatch',
+                          color: Colors.green,
+                          iconData: CupertinoIcons.stopwatch,
+                          onTap: () {},
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
-                ),
-                const VerticalDivider(),
-                const Expanded(
-                  child: ClockView(),
-                ),
-              ],
+                  const VerticalDivider(),
+                  const Expanded(
+                    child: ClockView(),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
