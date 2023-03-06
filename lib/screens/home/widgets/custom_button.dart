@@ -20,7 +20,7 @@ Widget buildMenuButton(
             borderRadius:
                 const BorderRadius.only(topRight: Radius.circular(20)),
             color: currentMenuInfo.menuType == value.menuType
-                ? AppColors().shadowColor
+                ? AppColors.shadowColor
                 : Colors.transparent,
           ),
           padding: const EdgeInsets.all(10),

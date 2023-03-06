@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:clock_app/common/style/colors.dart';
 import 'package:flutter/material.dart';
 
 class ClockPainter extends CustomPainter {
@@ -14,7 +15,7 @@ class ClockPainter extends CustomPainter {
     var radius = min(centerX, centerY);
 
     //**********  Fill  ******************/
-    var fillBrush = Paint()..color = const Color(0xff444974);
+    var fillBrush = Paint()..color = AppColors.clockBG;
     canvas.drawCircle(center, radius - 50, fillBrush);
 
     //**********  Outline ******************/
@@ -27,7 +28,7 @@ class ClockPainter extends CustomPainter {
     //**********  Sec arrow ******************/
 
     var secHandBrush = Paint()
-      ..color = Colors.orange[300]!
+      ..color = AppColors.secHandColor!
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 3;
@@ -40,9 +41,9 @@ class ClockPainter extends CustomPainter {
     //**********  Minit arrow ******************/
 
     var minHandBrush = Paint()
-      ..shader =
-          const RadialGradient(colors: [Color(0xff748ef6), Color(0xff77ddff)])
-              .createShader(Rect.fromCircle(center: center, radius: radius))
+      ..shader = RadialGradient(
+              colors: [AppColors.minHandStatColor, AppColors.minHandEndColor])
+          .createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 8;
@@ -54,10 +55,10 @@ class ClockPainter extends CustomPainter {
 
     //**********  hour arrow ******************/
     var hourHandBrush = Paint()
-      ..shader = const RadialGradient(
+      ..shader = RadialGradient(
         colors: [
-          Color(0xffea74ab),
-          Color(0xffc279fb),
+          AppColors.hourHandStatColor,
+          AppColors.hourHandEndColor,
         ],
       ).createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke

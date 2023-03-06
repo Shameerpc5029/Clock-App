@@ -1,3 +1,6 @@
+import 'package:clock_app/common/style/colors.dart';
+import 'package:clock_app/common/style/theme.dart';
+import 'package:clock_app/controller/alarm_info.dart';
 import 'package:clock_app/controller/manu_info_controller.dart';
 import 'package:clock_app/model/manu_type_enum.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,5 +30,21 @@ List<MenuInfoCondroller> menuItem = [
     title: 'Stopwatch',
     icon: CupertinoIcons.stopwatch,
     color: Colors.green,
+  ),
+];
+List<AlarmInfo> alarms = [
+  AlarmInfo(
+    DateTime.now().add(
+      const Duration(hours: 1),
+    ),
+    description: 'Office',
+    gradientColors: GradientColors.sea,
+  ),
+  AlarmInfo(
+    DateTime.now().add(
+      const Duration(hours: 2),
+    ),
+    description: 'sports',
+    gradientColors: GradientColors.fire,
   ),
 ];

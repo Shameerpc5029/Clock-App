@@ -5,11 +5,11 @@ ThemeData lightTheme() {
   return ThemeData(
     appBarTheme: AppBarTheme(
       foregroundColor: Colors.black,
-      backgroundColor: AppColors().backgroundLightColor,
+      backgroundColor: AppColors.backgroundLightColor,
     ),
-    scaffoldBackgroundColor: AppColors().backgroundLightColor,
+    scaffoldBackgroundColor: AppColors.backgroundLightColor,
     useMaterial3: true,
-    primaryColor: AppColors().backgroundLightColor,
+    primaryColor: AppColors.backgroundLightColor,
     textTheme: const TextTheme(
       displayLarge: TextStyle(
         fontSize: 72.0,
@@ -36,11 +36,11 @@ ThemeData lightTheme() {
 
 ThemeData darkTheme() {
   return ThemeData(
-    scaffoldBackgroundColor: AppColors().backgroundDarkColor,
-    primaryColor: AppColors().backgroundDarkColor,
+    scaffoldBackgroundColor: AppColors.backgroundDarkColor,
+    primaryColor: AppColors.backgroundDarkColor,
     appBarTheme: AppBarTheme(
       foregroundColor: Colors.white,
-      backgroundColor: AppColors().backgroundDarkColor,
+      backgroundColor: AppColors.backgroundDarkColor,
     ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(
@@ -71,3 +71,5 @@ ThemeData darkTheme() {
     useMaterial3: true,
   );
 }
+
+
