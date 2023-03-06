@@ -6,7 +6,6 @@ class HomeController extends ChangeNotifier {
   DateTime dateTime = DateTime.now();
   late Timer timer;
 
-  // DateTime get _dateTime => dateTime;
   void clock() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       dateTime = DateTime.now();
