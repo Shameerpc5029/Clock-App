@@ -27,3 +27,13 @@ class GradientColors {
   static List<Color> mango = [const Color(0xFFFFA738), const Color(0xFFFFE130)];
   static List<Color> fire = [const Color(0xFFFF5DCD), const Color(0xFFFF8484)];
 }
+
+class GradientTemplate {
+  static List<GradientColors> gradientTemplate = [
+    GradientColors(GradientColors.sky),
+    GradientColors(GradientColors.sunset),
+    GradientColors(GradientColors.sea),
+    GradientColors(GradientColors.mango),
+    GradientColors(GradientColors.fire),
+  ];
+}

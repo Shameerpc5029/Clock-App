@@ -1,5 +1,6 @@
 import 'package:clock_app/common/data/data.dart';
-import 'package:clock_app/controller/manu_info_controller.dart';
+
+import 'package:clock_app/model/manu_info.dart';
 import 'package:clock_app/model/manu_type_enum.dart';
 import 'package:clock_app/screens/alarm/alarm_view.dart';
 import 'package:clock_app/screens/clock/clock_view.dart';
@@ -27,15 +28,19 @@ class HomeScrenn extends StatelessWidget {
                     width: 90,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: menuItem
-                          .map((currentMenuInfo) =>
-                              buildMenuButton(context, currentMenuInfo))
+                      children: menuItems
+                          .map(
+                            (currentMenuInfo) => buildMenuButton(
+                              context,
+                              currentMenuInfo,
+                            ),
+                          )
                           .toList(),
                     ),
                   ),
                   const VerticalDivider(),
                   Expanded(
-                    child: Consumer<MenuInfoCondroller>(
+                    child: Consumer<MenuInfo>(
                       builder: (context, value, child) {
                         if (value.menuType == MenuType.clock) {
                           return const ClockView();

@@ -35,7 +35,7 @@ class ClockView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "${value.dateTime.day}",
+                      value.dateTime.day.toString().padLeft(2, '0'),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
@@ -45,7 +45,7 @@ class ClockView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Text(
-                        " / ${value.dateTime.month} / ${value.dateTime.year}",
+                        " / ${value.dateTime.month.toString().padLeft(2, '0')} / ${value.dateTime.year}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,

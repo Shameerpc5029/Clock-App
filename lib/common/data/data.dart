@@ -1,50 +1,35 @@
-import 'package:clock_app/common/style/colors.dart';
-import 'package:clock_app/common/style/theme.dart';
-import 'package:clock_app/controller/alarm_info.dart';
-import 'package:clock_app/controller/manu_info_controller.dart';
+import 'package:clock_app/model/alarm_info.dart';
+import 'package:clock_app/model/manu_info.dart';
 import 'package:clock_app/model/manu_type_enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-List<MenuInfoCondroller> menuItem = [
-  MenuInfoCondroller(
-    MenuType.clock,
-    title: 'Colck',
-    icon: CupertinoIcons.clock,
-    color: Colors.amber,
-  ),
-  MenuInfoCondroller(
-    MenuType.alarm,
-    title: 'Alarm',
-    icon: CupertinoIcons.alarm,
-    color: Colors.red,
-  ),
-  MenuInfoCondroller(
-    MenuType.timer,
-    title: 'Timer',
-    icon: CupertinoIcons.timer,
-    color: Colors.blue,
-  ),
-  MenuInfoCondroller(
-    MenuType.stopwatch,
-    title: 'Stopwatch',
-    icon: CupertinoIcons.stopwatch,
-    color: Colors.green,
-  ),
+List<MenuInfo> menuItems = [
+  MenuInfo(MenuType.clock,
+      title: 'Clock',
+      iconData: CupertinoIcons.clock,
+      manuItemColor: Colors.amber),
+  MenuInfo(MenuType.alarm,
+      title: 'Alarm',
+      iconData: CupertinoIcons.alarm,
+      manuItemColor: Colors.red),
+  MenuInfo(MenuType.timer,
+      title: 'Timer',
+      iconData: CupertinoIcons.timer,
+      manuItemColor: Colors.blue),
+  MenuInfo(MenuType.stopwatch,
+      title: 'Stopwatch',
+      iconData: CupertinoIcons.stopwatch,
+      manuItemColor: Colors.green),
 ];
+
 List<AlarmInfo> alarms = [
   AlarmInfo(
-    DateTime.now().add(
-      const Duration(hours: 1),
-    ),
-    description: 'Office',
-    gradientColors: GradientColors.sea,
-  ),
+      alarmDateTime: DateTime.now().add(const Duration(hours: 1)),
+      title: 'Office',
+      gradientColorIndex: 0),
   AlarmInfo(
-    DateTime.now().add(
-      const Duration(hours: 2),
-    ),
-    description: 'sports',
-    gradientColors: GradientColors.fire,
-  ),
+      alarmDateTime: DateTime.now().add(const Duration(hours: 2)),
+      title: 'Sport',
+      gradientColorIndex: 1),
 ];
