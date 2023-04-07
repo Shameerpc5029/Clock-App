@@ -100,6 +100,7 @@ class ClockView extends StatelessWidget {
                   "UTC+${value.dateTime.timeZoneOffset}(${value.dateTime.timeZoneName})",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
+              
               ],
             ),
           ],

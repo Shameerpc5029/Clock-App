@@ -109,7 +109,7 @@ class _AlarmViewState extends State<AlarmView> {
                                       MaterialTapTargetSize.shrinkWrap,
                                   value: _isRepeatSelected,
                                   onChanged: (value) {
-
+                                    _isRepeatSelected = value;
                                   },
                                   activeColor: Colors.white,
                                 )
@@ -299,8 +299,7 @@ class _AlarmViewState extends State<AlarmView> {
   void scheduleAlarm(
       DateTime scheduledNotificationDateTime, AlarmInfo alarmInfo,
       {required bool isRepeating}) async {
-    var scheduledNotificationDateTime =
-        DateTime.now().add(const Duration(seconds: 10));
+    var scheduledNotificationDateTime = alarmInfo.alarmDateTime;
     var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
       'channelId',
       'channelName',
@@ -322,13 +321,13 @@ class _AlarmViewState extends State<AlarmView> {
       0,
       "Clock App",
       alarmInfo.title,
-      scheduledNotificationDateTime,
+      scheduledNotificationDateTime!,
       platformChannelSpecifics,
     );
     if (isRepeating) {
       await flutterLocalNotificationsPlugin.showDailyAtTime(
         0,
-        'Office',
+        'Clock App',
         alarmInfo.title,
         Time(
           scheduledNotificationDateTime.hour,
@@ -340,7 +339,7 @@ class _AlarmViewState extends State<AlarmView> {
     } else {
       await flutterLocalNotificationsPlugin.zonedSchedule(
         0,
-        'Office',
+        'Clock App',
         alarmInfo.title,
         TZDateTime.from(scheduledNotificationDateTime, local),
         platformChannelSpecifics,
@@ -374,8 +373,6 @@ class _AlarmViewState extends State<AlarmView> {
 
   void deleteAlarm(int? id) {
     alarmHelper.delete(id);
-    //unsubscribe for notification
     loadAlarms();
   }
-  
 }

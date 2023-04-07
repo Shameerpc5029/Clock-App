@@ -24,6 +24,7 @@ class HomeScrenn extends StatelessWidget {
             child: Center(
               child: Row(
                 children: [
+                 
                   SizedBox(
                     width: 90,
                     child: Column(

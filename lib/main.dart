@@ -27,19 +27,13 @@ void main() async {
     android: initializationSettingsAndroid,
     iOS: initializationSettingsIOS,
   );
-  // await flutterLocalNotificationsPlugin.initialize(initializationSettings,on);
+
   await flutterLocalNotificationsPlugin.initialize(
     initializationSettings,
     onDidReceiveNotificationResponse:
         (NotificationResponse notificationResponse) async {},
   );
 
-  // await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-  //     onSelectNotification: (String? payload) async {
-  //   if (payload != null) {
-  //     debugPrint('notification payload: ' + payload);
-  //   }
-  // });
   runApp(
     const MyApp(),
   );
